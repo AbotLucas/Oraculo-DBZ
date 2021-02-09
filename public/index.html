@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OlorAQlo - The Game</title>
+
+  <!-- Meta info -->
+  <meta name="description" content="Juego de cartas de tarot! Son compatibles?">
+  <meta name="keywords" content="juego, game, tarot, oraculo, OlorAQlo, cards, cartas">
+  <meta name="author" content="Abot Lucas">
+  <meta name="copyright" content="Lucas Abot - DevRock 2021">
+
+
+  <!-- ROBOTS -->
+  <meta name="robots" content="index">
+
+  <!-- ICON -->
+  <link rel="shortcut icon" href="images/logo.png" type="image/png">
+
+  <!-- Facebook -->
+  <meta property="og:title" content="OlorAQlo">
+  <meta property="og:description" content="Juga y averigua si son compatibles!">
+  <meta property="og:type" content="game">
+  <meta property="og:image" content="">
+  <meta property="og:url" content="">
+
+  <!-- Twitter -->
+  <meta property="twitter:title" content="OlorAQlo">
+  <meta property="twitter:description" content="Juga y averigua si son compatibles!">
+  <meta property="twitter:type" content="game">
+  <meta name="twitter:card" content="">
+  <meta property="twitter:image" content="">
+  <meta property="twitter:url" content="">
+
+  <!-- FONTS -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Pathway+Gothic+One&display=swap" rel="stylesheet">
+
+  <!-- CSS only -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+
+</head>
+</head>
+
+<body>
+
+  <header>
+    <img src="images/logo.png" alt="" class="header__icon" preload="auto">
+  </header>
+
+  <section class="pantallaInicio espacio bordes">
+    <div class="mb-3">
+      <input type="text" class="form-control" id="pantallaInicio__form-player1" placeholder="Guerrero 1" required>
+    </div>
+    <div class="mb-3">
+      <input type="text" class="form-control" id="pantallaInicio__form-player2" placeholder="Guerrero 2" required>
+    </div>
+    <button type="button" class="btn btn-warning" id="pantallaInicio__btn-play" rows="2">JUGAR</button>
+    
+    <div class="tablaInicio espacio oculto">
+      <table class="table table-dark table-striped">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Player 1</th>
+            <th scope="col">Player 2</th>
+            <th scope="col">Match</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="pantallaCarga bordes oculto">
+    <img src="images/esferasdeldragon.png" alt="infinito cargando" id="pantallaCarga__imagen"
+      class="pantallaCarga__imagen imgr">
+  </section>
+
+  <section class="pantallaCartas bordes oculto">
+    <!-- data-bs-interval: Desactiva el autoplay y data-bs-wrap: Desactiva el bucle infinito -->
+    <div id="pantallaCartas__carousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false"
+      data-bs-wrap="false">
+      <button type="button" class="btn-close pantallaCartasCerrar" id="pantallaCartasCerrar"></button>
+      <ol class="carousel-indicators">
+        <li data-bs-target="#pantallaCartas__carousel" data-bs-slide-to="0" class="active"></li>
+        <li data-bs-target="#pantallaCartas__carousel" data-bs-slide-to="1"></li>
+        <li data-bs-target="#pantallaCartas__carousel" data-bs-slide-to="2"></li>
+        <li data-bs-target="#pantallaCartas__carousel" data-bs-slide-to="3"></li>
+        <li data-bs-target="#pantallaCartas__carousel" data-bs-slide-to="4"></li>
+        <li data-bs-target="#pantallaCartas__carousel" data-bs-slide-to="5"></li>
+      </ol>
+      <div class="carousel-inner bordes">
+        
+        <div class="carousel-item" id="cartaBotones">
+          <div class="carta">
+               <button type="button" class="btn btn-warning" id="btn-verResult">Ver
+                 esultados</button>
+               <button type="button" class="btn btn-warning" id="btn-volverATirar">Volver a
+               tirar</button>
+              </div>
+          </div>
+      </div>
+      <a class="carousel-control-prev" href="#pantallaCartas__carousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#pantallaCartas__carousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+    </div>
+  </section>
+
+  <section class="pantallaResultado oculto">
+    <button type="button" class="btn-close pantallaResultado__botonCerrarResultado" id="pantallaResultado__botonCerrarResultado"></button>
+    <div class="pantallaResultado__containerMiniCards" id="pantallaResultado__containerMiniCards1">
+      <div class="pantallaResultado__miniCard"><img src="" alt=""></div>
+      <div class="pantallaResultado__miniCard"><img src="" alt=""></div>
+      <div class="pantallaResultado__miniCard"><img src="" alt=""></div>
+    </div>
+    <h2 id="pantallaResultado__p1"></h2>
+    <div class="pantallaResultado__containerMiniCards" id="pantallaResultado__containerMiniCards2" >
+      <div class="pantallaResultado__miniCard"><img src="" alt=""></div>
+      <div class="pantallaResultado__miniCard"><img src="" alt=""></div>
+      <div class="pantallaResultado__miniCard"><img src="" alt=""></div>
+    </div>
+    <h2 id="pantallaResultado__p2"></h2>
+    <div class="pantallaResultado__containerMatchResult espacio">
+      <img src="images/noMatchKrillin.png" alt="" class="pantallaResultado__containerMatchKrillin">
+      <h3>NO MATCH <br>💔</h3>
+      <img src="images/noMatchGoku.png" alt="" class="pantallaResultado__containerMatchGoku">
+    </div>
+    <div class="pantallaResultado__containerBotonResult">
+      <button type="button" class="btn btn-warning pantallaResultado__botonGuardar" id="pantallaResultado__botonGuardar">Guardar</button>
+      <button type="button" class="btn btn-warning pantallaResultado__botonSalir" id="pantallaResultado__botonSalir">Salir</button>
+    </div>
+  </section>
+
+  <footer>
+    <p class="playerControl">🔇</p>
+    <p>Abot Lucas All Rights Reserved. </p>
+    <audio src="media/el_poder_nuestro_es.mp3" id="player" preload="metadata" controls autoplay loop='false'  ></audio>
+  </footer>
+  
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+  <script src="js/index.js"></script>
+</body>
+
+</html>
