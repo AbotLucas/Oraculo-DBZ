@@ -75,6 +75,7 @@ let pantallaResultadoSalir = document.getElementById('pantallaResultado__botonSa
 let pantallaResultadoMinicard = document.querySelector('.pantallaResultado__containerMiniCards')
 /* Player */
 let player = document.getElementById('player')
+player.play()
 let playerControl = document.querySelector('footer .playerControl')
 let mute = document.querySelector('footer .playerControl').addEventListener('click', mutearODesmutear)
 
